@@ -63,7 +63,7 @@ img {
 }
 
 /* Optional: better alignment for logos */
-.partner-logos  img{
+.partner-logo  img{
     height: 36px;
     width: auto;
     max-width: 120px;
@@ -414,6 +414,7 @@ footer {
     }
  
 }
+
 
 
 
