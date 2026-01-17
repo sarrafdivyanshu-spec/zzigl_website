@@ -35,6 +35,42 @@ img {
     height: auto;
 }
 
+   /* Hero banner image */
+.hero-img {
+    max-width: 100%;
+    max-height: 420px;
+    object-fit: contain;
+}
+
+/* Partner logos */
+.partner-logo {
+    max-height: 40px;
+    width: auto;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.partner-logo:hover {
+    opacity: 1;
+}
+
+/* Solutions section image */
+.solution-img {
+    max-width: 100%;
+    max-height: 300px;
+    object-fit: contain;
+}
+
+/* Optional: better alignment for logos */
+.partner-logos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+
 .container {
     max-width: 1100px;
     margin: 0 auto;
@@ -378,40 +414,7 @@ footer {
     .btn-outline {
         margin-left: 0;
     }
-    /* Hero banner image */
-.hero-img {
-    max-width: 100%;
-    max-height: 420px;
-    object-fit: contain;
+ 
 }
 
-/* Partner logos */
-.partner-logo {
-    max-height: 40px;
-    width: auto;
-    opacity: 0.8;
-    transition: opacity 0.3s ease;
-}
-
-.partner-logo:hover {
-    opacity: 1;
-}
-
-/* Solutions section image */
-.solution-img {
-    max-width: 100%;
-    max-height: 300px;
-    object-fit: contain;
-}
-
-/* Optional: better alignment for logos */
-.partner-logos {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 40px;
-    flex-wrap: wrap;
-}
-
-}
 
