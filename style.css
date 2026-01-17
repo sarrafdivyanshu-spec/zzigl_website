@@ -37,8 +37,9 @@ img {
 
    /* Hero banner image */
 .hero-img {
-    max-width: 100%;
-    max-height: 420px;
+    width: 100%;
+    max-width: 500px;
+    height: auto;
     object-fit: contain;
 }
 
@@ -62,12 +63,12 @@ img {
 }
 
 /* Optional: better alignment for logos */
-.partner-logos {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 40px;
-    flex-wrap: wrap;
+.partner-logos  img{
+    height: 36px;
+    width: auto;
+    max-width: 120px;
+    object-fit: contain;
+    opacity: 0.75;
 }
 
 
@@ -208,10 +209,10 @@ img {
 }
 
 .hero-image {
-    flex: 1;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+    flex: 0 0 45%;
+    max-width: 45%;
+    display: flex;
+    justify-content: center;
 }
 
 /* --- Partners --- */
@@ -229,13 +230,6 @@ img {
     letter-spacing: 1px;
 }
 
-.partner-logos {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    flex-wrap: wrap;
-    opacity: 0.7;
-}
 
 /* --- Features --- */
 .features {
@@ -293,12 +287,16 @@ img {
 }
 
 .split-image {
-    flex: 1;
+    flex: 0 0 45%;
+    display: flex;
+    justify-content: center;
 }
 
 .split-image img {
-    border-radius: 8px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 420px;
+    height: auto;
+    object-fit: contain;
 }
 
 .split-content {
@@ -416,5 +414,6 @@ footer {
     }
  
 }
+
 
 
