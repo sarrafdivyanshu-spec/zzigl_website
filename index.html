@@ -3,280 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FinCore – Modern Wealth Tech Platform</title>
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            color: #f1f5f9;
-            overflow-x: hidden;
-        }
-
-        /* ---------- NAV ---------- */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.5rem 5%;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            background: rgba(15, 23, 42, 0.85);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #38bdf8, #6366f1);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: #cbd5f5;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: #38bdf8;
-        }
-
-        .cta-btn {
-            padding: 0.75rem 1.5rem;
-            background: linear-gradient(135deg, #38bdf8, #6366f1);
-            border: none;
-            border-radius: 10px;
-            color: #fff;
-            font-weight: 600;
-            cursor: pointer;
-        }
-
-        /* ---------- HERO ---------- */
-        .hero {
-            padding: 10rem 5% 6rem;
-            display: grid;
-            grid-template-columns: 1.1fr 0.9fr;
-            gap: 4rem;
-            align-items: center;
-            position: relative;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(56, 189, 248, 0.15), transparent);
-            top: 50%;
-            left: 30%;
-            transform: translate(-50%, -50%);
-            border-radius: 50%;
-            animation: pulse 4s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.4; }
-            50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.25; }
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero h1 {
-            font-size: 3.8rem;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, #ffffff, #94a3b8);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-            color: #94a3b8;
-            margin-bottom: 2.5rem;
-            max-width: 600px;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .primary-btn {
-            padding: 1rem 2.5rem;
-            background: linear-gradient(135deg, #38bdf8, #6366f1);
-            border: none;
-            border-radius: 12px;
-            color: white;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-        }
-
-        .secondary-btn {
-            padding: 1rem 2.5rem;
-            background: rgba(255, 255, 255, 0.1);
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            border-radius: 12px;
-            color: white;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-        }
-
-        /* ---------- DASHBOARD IMAGE ---------- */
-        .hero-visual {
-            position: relative;
-            z-index: 1;
-        }
-
-        .dashboard-card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 1.5rem;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
-        }
-
-        .dashboard-card img {
-            width: 100%;
-            border-radius: 14px;
-            display: block;
-        }
-
-        /* ---------- FEATURES ---------- */
-        .features {
-            padding: 6rem 5%;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .feature-card {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 2.5rem;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.4s;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-10px);
-            border-color: rgba(56, 189, 248, 0.6);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.35);
-        }
-
-        .feature-icon {
-            font-size: 2.8rem;
-            margin-bottom: 1.2rem;
-        }
-
-        .feature-card h3 {
-            margin-bottom: 0.8rem;
-            color: #e2e8f0;
-        }
-
-        .feature-card p {
-            color: #94a3b8;
-            line-height: 1.6;
-        }
-
-        /* ---------- FOOTER ---------- */
-        footer {
-            padding: 3rem 5%;
-            text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #64748b;
-        }
-
-        @media (max-width: 900px) {
-            .hero {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            .hero-buttons {
-                justify-content: center;
-            }
-            .nav-links {
-                display: none;
-            }
-        }
-    </style>
+    <title>FinCore – Wealth Management Platform</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<nav>
-    <div class="logo">FinCore</div>
-    <ul class="nav-links">
-        <li><a href="#features">Features</a></li>
-        <li><a href="#platform">Platform</a></li>
-        <li><a href="#pricing">Pricing</a></li>
-    </ul>
-    <button class="cta-btn">Book a Demo</button>
-</nav>
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="logo">FinCore<span>.</span></div>
+        <nav>
+            <a href="#">Features</a>
+            <a href="#">Solutions</a>
+            <a href="#">Login</a>
+            <a href="#" class="btn-primary">Book a Demo</a>
+        </nav>
+    </header>
 
-<section class="hero">
-    <div class="hero-content">
-        <h1>Future-Proof Your Wealth Management Firm</h1>
-        <p>
-            A modern operating system for advisors. Digitize onboarding,
-            portfolio reporting, and client engagement — all in one platform.
-        </p>
-        <div class="hero-buttons">
-            <button class="primary-btn">Start Free Trial</button>
-            <button class="secondary-btn">Watch Demo</button>
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Future-Proof Your<br>Wealth Management<br>Firm</h1>
+
+            <p>
+                A modern operating system for advisors. Digitize onboarding,
+                portfolio reporting, and client engagement — all in one platform.
+            </p>
+
+            <div class="hero-actions">
+                <a href="#" class="btn-primary">Start Free Trial</a>
+                <a href="#" class="btn-secondary">Watch Video ▶</a>
+            </div>
         </div>
-    </div>
 
-    <div class="hero-visual">
-        <div class="dashboard-card">
-            <img src="banner.png" alt="FinCore Dashboard">
+        <!-- DASHBOARD IMAGE -->
+        <div class="hero-image">
+            <img 
+                src="banner.png" 
+                alt="FinCore Dashboard"
+                loading="lazy"
+            >
         </div>
-    </div>
-</section>
+    </section>
 
-<section class="features" id="features">
-    <div class="feature-card">
-        <div class="feature-icon">📊</div>
-        <h3>Unified Advisor Dashboard</h3>
-        <p>Get a real-time view of client portfolios, performance, and engagement.</p>
-    </div>
-    <div class="feature-card">
-        <div class="feature-icon">⚡</div>
-        <h3>Instant Digital Onboarding</h3>
-        <p>Seamless KYC, paperless journeys, and faster client activation.</p>
-    </div>
-    <div class="feature-card">
-        <div class="feature-icon">🔐</div>
-        <h3>Enterprise-Grade Security</h3>
-        <p>Bank-level encryption, role-based access, and compliance built-in.</p>
-    </div>
-</section>
-
-<footer>
-    © 2026 FinCore. All rights reserved.
-</footer>
+    <!-- TRUST SECTION -->
+    <section class="trusted">
+        <p>TRUSTED BY 500+ INVESTMENT FIRMS</p>
+        <div class="logos">
+            <img src="logo_color.jpg" alt="Client logo">
+            <img src="logo_color.jpg" alt="Client logo">
+            <img src="logo_color.jpg" alt="Client logo">
+            <img src="logo_color.jpg" alt="Client logo">
+        </div>
+    </section>
 
 </body>
 </html>
