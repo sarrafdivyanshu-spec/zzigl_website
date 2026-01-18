@@ -3,185 +3,280 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FinCore | Digital Wealth Management Solutions</title>
+    <title>FinCore – Modern Wealth Tech Platform</title>
 
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #f1f5f9;
+            overflow-x: hidden;
+        }
+
+        /* ---------- NAV ---------- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #38bdf8, #6366f1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #cbd5f5;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #38bdf8;
+        }
+
+        .cta-btn {
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(135deg, #38bdf8, #6366f1);
+            border: none;
+            border-radius: 10px;
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        /* ---------- HERO ---------- */
+        .hero {
+            padding: 10rem 5% 6rem;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(56, 189, 248, 0.15), transparent);
+            top: 50%;
+            left: 30%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.4; }
+            50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.25; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.8rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #ffffff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: #94a3b8;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .primary-btn {
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, #38bdf8, #6366f1);
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .secondary-btn {
+            padding: 1rem 2.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        /* ---------- DASHBOARD IMAGE ---------- */
+        .hero-visual {
+            position: relative;
+            z-index: 1;
+        }
+
+        .dashboard-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 1.5rem;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+        }
+
+        .dashboard-card img {
+            width: 100%;
+            border-radius: 14px;
+            display: block;
+        }
+
+        /* ---------- FEATURES ---------- */
+        .features {
+            padding: 6rem 5%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(56, 189, 248, 0.6);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+        }
+
+        .feature-icon {
+            font-size: 2.8rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 0.8rem;
+            color: #e2e8f0;
+        }
+
+        .feature-card p {
+            color: #94a3b8;
+            line-height: 1.6;
+        }
+
+        /* ---------- FOOTER ---------- */
+        footer {
+            padding: 3rem 5%;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #64748b;
+        }
+
+        @media (max-width: 900px) {
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero-buttons {
+                justify-content: center;
+            }
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-<!-- ================= NAVBAR ================= -->
-<nav class="navbar">
-    <div class="container">
-        <a href="#" class="logo">FinCore<span class="dot">.</span></a>
-
-        <div class="menu-toggle" id="mobile-menu">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </div>
-
-        <ul class="nav-menu">
-            <li><a href="#features" class="nav-link">Features</a></li>
-            <li><a href="#solutions" class="nav-link">Solutions</a></li>
-            <li><a href="#" class="btn-secondary">Login</a></li>
-            <li><a href="#" class="btn-primary">Book a Demo</a></li>
-        </ul>
-    </div>
+<nav>
+    <div class="logo">FinCore</div>
+    <ul class="nav-links">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#platform">Platform</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+    </ul>
+    <button class="cta-btn">Book a Demo</button>
 </nav>
 
-<!-- ================= HERO ================= -->
-<header class="hero">
-    <div class="container hero-content">
-
-        <div class="hero-text">
-            <h1>Future-Proof Your<br>Wealth Management Firm</h1>
-            <p>
-                A modern operating system for advisors. Digitize onboarding,
-                portfolio reporting, and client engagement — all in one platform.
-            </p>
-
-            <div class="hero-buttons">
-                <a href="#" class="btn-primary">Start Free Trial</a>
-                <a href="#" class="btn-outline">
-                    Watch Video <i class="fas fa-play-circle"></i>
-                </a>
-            </div>
+<section class="hero">
+    <div class="hero-content">
+        <h1>Future-Proof Your Wealth Management Firm</h1>
+        <p>
+            A modern operating system for advisors. Digitize onboarding,
+            portfolio reporting, and client engagement — all in one platform.
+        </p>
+        <div class="hero-buttons">
+            <button class="primary-btn">Start Free Trial</button>
+            <button class="secondary-btn">Watch Demo</button>
         </div>
-
-        <div class="hero-image">
-            <img src="banner.png" alt="FinCore Dashboard" class="hero-img">
-        </div>
-
     </div>
-</header>
 
-<!-- ================= PARTNERS ================= -->
-<section class="partners">
-    <div class="container">
-        <p class="section-eyebrow">Trusted by 500+ Investment Firms</p>
-
-        <div class="partner-logos">
-            <img src="logo_color.jpg" alt="Partner" class="partner-logo">
-            <img src="logo_color.jpg" alt="Partner" class="partner-logo">
-            <img src="logo_color.jpg" alt="Partner" class="partner-logo">
-            <img src="logo_color.jpg" alt="Partner" class="partner-logo">
+    <div class="hero-visual">
+        <div class="dashboard-card">
+            <img src="banner.png" alt="FinCore Dashboard">
         </div>
     </div>
 </section>
 
-<!-- ================= FEATURES ================= -->
-<section id="features" class="features">
-    <div class="container">
-
-        <div class="section-header">
-            <h2>The Operating System for Modern Advisors</h2>
-            <p>Everything you need to scale your advisory business efficiently.</p>
-        </div>
-
-        <div class="feature-grid">
-
-            <div class="feature-card">
-                <i class="fas fa-file-signature icon"></i>
-                <h3>Digital Onboarding</h3>
-                <p>Paperless account opening with built-in KYC and e-signatures.</p>
-            </div>
-
-            <div class="feature-card">
-                <i class="fas fa-chart-line icon"></i>
-                <h3>Portfolio Analytics</h3>
-                <p>Real-time performance insights and white-labeled reporting.</p>
-            </div>
-
-            <div class="feature-card">
-                <i class="fas fa-shield-alt icon"></i>
-                <h3>Enterprise-Grade Security</h3>
-                <p>SOC-2 compliant infrastructure with end-to-end encryption.</p>
-            </div>
-
-        </div>
+<section class="features" id="features">
+    <div class="feature-card">
+        <div class="feature-icon">📊</div>
+        <h3>Unified Advisor Dashboard</h3>
+        <p>Get a real-time view of client portfolios, performance, and engagement.</p>
+    </div>
+    <div class="feature-card">
+        <div class="feature-icon">⚡</div>
+        <h3>Instant Digital Onboarding</h3>
+        <p>Seamless KYC, paperless journeys, and faster client activation.</p>
+    </div>
+    <div class="feature-card">
+        <div class="feature-icon">🔐</div>
+        <h3>Enterprise-Grade Security</h3>
+        <p>Bank-level encryption, role-based access, and compliance built-in.</p>
     </div>
 </section>
 
-<!-- ================= SOLUTIONS ================= -->
-<section id="solutions" class="solutions">
-    <div class="container split-layout">
-
-        <div class="split-image">
-            <img src="logo_color.jpg" alt="White Label Platform">
-        </div>
-
-        <div class="split-content">
-            <h3>Your Brand, Front and Center</h3>
-            <p>
-                Launch a fully white-labeled web and mobile experience under your
-                own brand — without building technology from scratch.
-            </p>
-
-            <ul class="check-list">
-                <li><i class="fas fa-check"></i> Custom Domain & Branding</li>
-                <li><i class="fas fa-check"></i> Integrated Billing & Invoicing</li>
-                <li><i class="fas fa-check"></i> Unified Client Communication</li>
-            </ul>
-
-            <a href="#" class="btn-text">Explore Customization →</a>
-        </div>
-
-    </div>
-</section>
-
-<!-- ================= CTA ================= -->
-<section class="cta">
-    <div class="container">
-        <h2>Ready to Digitize Your Practice?</h2>
-        <p>Join the platform managing over $10B in client assets.</p>
-        <a href="#" class="btn-primary">Schedule a Consultation</a>
-    </div>
-</section>
-
-<!-- ================= FOOTER ================= -->
 <footer>
-    <div class="container footer-content">
-
-        <div class="footer-col">
-            <h4>FinCore.</h4>
-            <p>Empowering the next generation of wealth managers.</p>
-        </div>
-
-        <div class="footer-col">
-            <h4>Product</h4>
-            <ul>
-                <li><a href="#">Features</a></li>
-                <li><a href="#">Pricing</a></li>
-                <li><a href="#">API</a></li>
-            </ul>
-        </div>
-
-        <div class="footer-col">
-            <h4>Company</h4>
-            <ul>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Careers</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </div>
-
-        <div class="footer-col">
-            <h4>Legal</h4>
-            <ul>
-                <li><a href="#">Privacy Policy</a></li>
-                <li><a href="#">Terms of Service</a></li>
-            </ul>
-        </div>
-
-    </div>
-
-    <div class="container copyright">
-        <p>© 2024 FinCore Technologies Inc. All rights reserved.</p>
-    </div>
+    © 2026 FinCore. All rights reserved.
 </footer>
 
-<script src="script.js"></script>
 </body>
 </html>
-
