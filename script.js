@@ -1,41 +1,6 @@
-document.addEventListener('DOMContentLoaded', () => {
-    
-    // --- Mobile Menu Toggle ---
-    const mobileMenu = document.getElementById('mobile-menu');
-    const navList = document.querySelector('.nav-menu');
-
-    mobileMenu.addEventListener('click', () => {
-        navList.classList.toggle('active');
-        mobileMenu.classList.toggle('active'); // Optional: for animating hamburger icon
-    });
-
-    // --- Close menu when clicking a link ---
-    document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
-        navList.classList.remove('active');
-    }));
-
-
-    // --- Sticky Navbar Effect ---
-    const navbar = document.querySelector('.navbar');
-    
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.style.boxShadow = "0 4px 15px rgba(0,0,0,0.1)";
-        } else {
-            navbar.style.boxShadow = "0 2px 10px rgba(0,0,0,0.05)";
-        }
-    });
-
-    // --- Smooth Scroll for Anchor Links ---
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if(target){
-                target.scrollIntoView({
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
+window.addEventListener("scroll", () => {
+    const nav = document.querySelector(".navbar");
+    nav.style.boxShadow = window.scrollY > 20
+        ? "0 8px 30px rgba(0,0,0,0.3)"
+        : "none";
 });
